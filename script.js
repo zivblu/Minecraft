@@ -259,8 +259,7 @@ function handleTileClick(event) {
   if (document.querySelector(".selected")) {
     let selectedTool = document.querySelector(".selected");
     if (
-      selectedTool.classList.contains("toolbarBox") &&
-      isMinable(event.currentTarget)
+      selectedTool.classList.contains("toolbarBox") 
     ) {
       mineTheTile(pressedTileType, selectedTool.getAttribute("id"));
     } else if (
@@ -270,19 +269,6 @@ function handleTileClick(event) {
       placeTheTile(pressedTileType, selectedTool.getAttribute("id"));
     }
   }
-}
-
-function isMinable(tile) {
-  const tileRow = parseInt(tile.getAttribute("data-row"));
-  const tileCol = parseInt(tile.getAttribute("data-col"));
-  // if (
-  //   gameArea[tileRow - 1][tileCol].getAttribute("id") === "id" ||
-  //   gameArea[tileRow + 1][tileCol].getAttribute("id") === "sky" ||
-  //   gameArea[tileRow][tileCol - 1].getAttribute("id") === "sky" ||
-  //   gameArea[tileRow][tileCol + 1].getAttribute("id") === "sky"
-  // ) {
-    return true;
-  // } return false;
 }
 
 function checkInventory(tileToPlaceType) {
@@ -323,7 +309,6 @@ function addToInventory(tileToMine) {
       document.querySelector(`[id=${tileToMine}].materialBox`)
         .textContent,
     ) + 1;
-
 }
 
 function removeFromInventory(tileToPlace) {
